@@ -1,12 +1,11 @@
-import Search from "@/components/barberShops/search";
-import BarberForm from "@/components/barberShops/barberForm";
+import Inicio from './inicio/page';
 
-function barbersPage(){
-    return(
-        <div>
-            <Search/>
-            <BarberForm/>   
-        </div>
-    )
+function page() {
+  return (
+    <div>
+      <Inicio />
+    </div>
+  );
 }
-export default barbersPage;
+
+export default page;
