@@ -1,8 +1,8 @@
-import BarberPage from "@/pages/registerPage";
+import BarberPage from "@/pages/barberPage"
 
-function barber(){
+function barber (){
     return(
-      <BarberPage />
+        <BarberPage/>
     )
 }
 

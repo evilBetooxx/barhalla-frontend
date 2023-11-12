@@ -97,7 +97,7 @@ function EditProfile() {
           </button>
         </div>
       </form>
-      <NavBar />
+      <NavBar/>
     </div>
   );
 }

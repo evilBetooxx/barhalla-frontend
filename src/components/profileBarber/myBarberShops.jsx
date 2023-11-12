@@ -3,6 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import { ArrowLeft, ArrowRight } from 'react-feather';
 import NavBar from '@/components/common/NavBar';
+import Link from 'next/link';
 
 
 function myBarberShops() {
@@ -123,7 +124,7 @@ function myBarberShops() {
             setGrupoActual(grupoActual - 1);
         }
     };
-       
+
     return (
         <div className="flex flex-col items-center text-center">
             <img
@@ -145,9 +146,12 @@ function myBarberShops() {
                                 <div className="mt-2 text-center">
                                     <p className="text-sm font-semibold text-orange-500">{barberShop.user.name}</p>
                                     <p className="text-gray-600 text-xs">{barberShop.description}</p>
-                                    <button className="bg-zinc-900 border border-orange-500 hover:bg-zinc-950 text-white px-2 py-1 rounded-md mt-2">
-                                        Ver mas...
-                                    </button>
+                                    <Link href="/myBarber">
+                                        <button className="bg-zinc-900 border border-orange-500 hover:bg-zinc-950 text-white px-2 py-1 rounded-md mt-2">
+                                            Ver mas...
+                                        </button>
+                                    </Link>
+
                                 </div>
                             </div>
                         ))}

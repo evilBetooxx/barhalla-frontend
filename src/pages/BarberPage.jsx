@@ -1,9 +1,9 @@
-function barberPage() {
-  return (
-    <div>
-      <h1>Barber Page</h1>
-    </div>
-  );
+import MyBarber from "@/components/barberShops/myBarber"
+
+function barberPage (){
+    return(
+        <MyBarber/>
+    )
 }
 
 export default barberPage;

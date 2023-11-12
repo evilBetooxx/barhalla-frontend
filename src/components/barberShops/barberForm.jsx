@@ -3,6 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import { ArrowLeft, ArrowRight } from 'react-feather';
 import NavBar from '@/components/common/NavBar';
+import Link from 'next/link';
 
 
 function BarberForm() {
@@ -112,7 +113,9 @@ function BarberForm() {
                   <p className="text-lg font-semibold text-orange-500">{barberShop.user.name}</p>
                   <p className="text-lg font-semibold">{barberShop.data}</p>
                   <p className="text-gray-600">{barberShop.description}</p>
+                  <Link href="/barber">
                   <button className="bg-zinc-900 border border-orange-500 hover:bg-zinc-950 text-white px-2 py-1 rounded-md mt-4">Ver mas...</button>
+                  </Link>
                 </div>
               </div>
             ))}

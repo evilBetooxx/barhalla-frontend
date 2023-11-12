@@ -52,8 +52,6 @@ function Reviews() {
             <button className="border text-white w-80 h-12 rounded-lg hover:border-black hover:text-black hover:bg-white">¿Tienes una barbería?</button>
           </Link>
         </div>
-
-
       </article>
       <Navbar />
     </div>
