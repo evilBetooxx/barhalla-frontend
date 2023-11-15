@@ -52,7 +52,7 @@ function EditProfile() {
           />
           <button
             type="button"
-            className="cursor-pointer bg-zinc-800 hover:bg-zinc-900 text-white py-2 px-4 rounded-lg"
+            className="cursor-pointer bg-zinc-800 hover:bg-zinc-900 text-white py-2 px-4 rounded-lg mt-4"
             onClick={handleImageUpload}
           >
             Cambiar Foto de Perfil

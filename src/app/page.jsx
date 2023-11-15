@@ -1,9 +1,9 @@
-import Inicio from './inicio/page';
+import Login from './login/page';
 
 function page() {
   return (
     <div>
-      <Inicio />
+      <Login />
     </div>
   );
 }

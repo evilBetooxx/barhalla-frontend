@@ -146,7 +146,7 @@ function myBarberShops() {
                                 <div className="mt-2 text-center">
                                     <p className="text-sm font-semibold text-orange-500">{barberShop.user.name}</p>
                                     <p className="text-gray-600 text-xs">{barberShop.description}</p>
-                                    <Link href="/myBarber">
+                                    <Link href="/editBarber">
                                         <button className="bg-zinc-900 border border-orange-500 hover:bg-zinc-950 text-white px-2 py-1 rounded-md mt-2">
                                             Ver mas...
                                         </button>
