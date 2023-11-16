@@ -102,15 +102,21 @@ function Services() {
                         </li>
                     </ul>
                 </nav>
-
                 {activeSection === 'services' && (
                     <section>
-                        <h2 className="text-orange-500">Servicios - costos</h2>
+                        <div className='flex justify-between'>
+                        <h2 className="text-orange-500 mb-2">Servicios</h2>
+                        <h2 className="text-orange-500 mb-2 ml-4">costos</h2>
+                        </div>
+                        
                         <ul>
                             {servicios.map((servicio, index) => (
-                                <li key={index}>
-                                    {servicio.nombre} - {servicio.precio}
-                                </li>
+                                 <li key={index} className="mb-2">
+                                 <div className="flex justify-between">
+                                     <span className='mr-4'>{servicio.nombre}</span>
+                                     <span className='ml-4'>{servicio.precio}</span>
+                                 </div>
+                             </li>
                             ))}
                         </ul>
                     </section>
@@ -121,7 +127,7 @@ function Services() {
                         <h2 className="text-orange-500">Horario</h2>
                         <ul>
                             {horario.map((horarioItem, index) => (
-                                <li key={index}>{horarioItem}</li>
+                                <li className="mb-2" key={index}>{horarioItem} </li>
                             ))}
                         </ul>
                     </section>
@@ -132,7 +138,7 @@ function Services() {
                         <h2 className="text-orange-500">Contacto</h2>
                         <ul>
                             {contacto.map((contactoItem, index) => (
-                                <li key={index}>{contactoItem}</li>
+                                <li className="mb-2" key={index}>{contactoItem}</li>
                             ))}
                         </ul>
                     </section>

@@ -1,83 +1,107 @@
 "use client";
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
+import NavBar from "@/components/common/NavBar";
+import EditServices from "@/components/profileBarber/editServices";
 
-function EditBarberShop() {
-    const BarberData = {
-        name: "Barberia de prueba",
-        description: "Esta es una barbería de prueba",
-        logo: "/barber3.jpeg"
+function MyBarber() {
+    const [editImage, setEditImage] = useState(false);
+    const [editDescription, setEditDescription] = useState(false);
+    const [selectedImage, setSelectedImage] = useState(null);
+    const [barberDescription, setBarberDescription] = useState(
+        "¡La mejor barbería en la ciudad! Ofrecemos cortes de cabello y afeitados de primera clase.¡La mejor barbería en la ciudad! Ofrecemos cortes de cabello y afeitados de primera clase.¡La mejor barbería en la ciudad! Ofrecemos cortes de cabello y afeitados de primera clase.¡La mejor barbería en la ciudad! Ofrecemos cortes de cabello y afeitados de primera clase."
+    );
+
+    const barberShopName = "My Barber champo";
+    const barberLogoUrl = selectedImage || "/barber3.jpeg";
+
+    const handleEditImage = () => {
+        setEditImage(!editImage);
     };
 
-    const fileInputRef = useRef(null);
-    const [selectedFile, setSelectedFile] = useState(null);
-
-    const handleFileChange = (e) => {
-        const file = e.target.files[0];
-
+    const handleImageChange = (event) => {
+        const file = event.target.files[0];
         if (file) {
-            const fileReader = new FileReader();
-            fileReader.onloadend = () => {
-                setSelectedFile(fileReader.result);
-            };
-            fileReader.readAsDataURL(file);
-        } else {
-            setSelectedFile(null);
+            const imageUrl = URL.createObjectURL(file);
+            setSelectedImage(imageUrl);
         }
     };
 
+    const handleEditDescription = () => {
+        setEditDescription(!editDescription);
+    };
+
+    const handleDescriptionChange = (event) => {
+        setBarberDescription(event.target.value);
+    };
+
     return (
-        <div className="flex flex-col items-center p-4">
-            <div className="flex items-center">
-                <img
-                    src="/barhallaLogo.png"
-                    alt="Logo de la barbería"
-                    className="h-32 w-32 object-contain"
-                />
-            </div>
+        <div className="p-8 flex flex-col items-center relative" style={{ marginBottom: '100px' }}>
+            <img
+                src="/barhallaLogo.png"
+                alt="Barhalla Logo"
+                className="w-16 h-16 mr-4 sm:w-32 sm:h-32 md:w-18 md:h-18 lg:w-25 lg:h-25 xl:w-32 xl:h-32 absolute right-4 mt-[-20px] sm:right-8 sm:mt-[-40px] md:right-12 md:mt-[-50px] lg:right-16 lg:mt-[-30px] xl:right-20 xl:mt-[-40px]"
+            />
 
-            <hr className="w-full mt-4 sm:mt-12 border-t-2 border-orange-500" />
-
-            <h1 className="text-2xl text-orange-500 font-semibold my-4">
-                {BarberData.name}
+            <h1 className="text-2xl font-semibold text-center sm:text-left md:text-center lg:text-left xl:text-left text-orange-600 mr-8">
+                {barberShopName}
             </h1>
-
-            <div className="flex flex-col items-center">
-                {!selectedFile && (
-                    <img
-                        src={BarberData.logo}
-                        alt="Imagen de la barbería"
-                        className="h-48 w-48 object-contain mb-4"
-                    />
-                )}
-
-               
-                {selectedFile && (
-                    <img
-                        src={selectedFile}
-                        alt="Imagen seleccionada"
-                        className="h-48 w-48 object-contain mb-4"
-                    />
-                )}
-
+            <hr className="w-full mt-4 sm:mt-12 border-t-2 border-orange-500" />
+            <img
+                src={barberLogoUrl}
+                alt="Barber Logo"
+                className="w-80 h-80 rounded-lg max-w-full mt-4"
+            />
+            
+            <div className="mt-4">
                 <input
-                    ref={fileInputRef}
                     type="file"
                     accept="image/*"
-                    style={{ display: 'none' }}
-                    onChange={handleFileChange}
+                    onChange={handleImageChange}
+                    className="hidden"
+                    id="imageInput"
                 />
-
-                <button
-                    onClick={() => fileInputRef.current.click()}
-                    className="bg-zinc-800 hover:bg-zinc-900 text-white px-4 py-2 rounded-md"
+                <label
+                    htmlFor="imageInput"
+                    className="bg-orange-500 text-white rounded-lg p-2 px-6 cursor-pointer hover:bg-orange-600"
                 >
-                    Editar Imagen
+                    {editImage ? 'Guardar Cambios' : 'Cambiar logo'}
+                </label>
+            </div>
+            <hr className="w-full mt-4 sm:mt-12 border-t-2 border-orange-500" />
+
+            <p className="text-center mt-4 sm:mt-8 md:mt-12 lg:mt-16 xl:mt-20 xl:w-2/3 " style={{ textAlign: "justify" }}>
+                {editDescription ? (
+                    <textarea
+                        value={barberDescription}
+                        onChange={handleDescriptionChange}
+                        className="w-80 h-40 p-2 mt-2 border rounded-md bg-zinc-900"
+                    />
+                ) : (
+                    barberDescription
+                )}
+            </p>
+
+            <div className="mt-4">
+                <button
+                    className="bg-orange-500 text-white rounded-lg p-2 px-6 hover:bg-orange-600"
+                    onClick={handleEditDescription}
+                >
+                    {editDescription ? 'Guardar Cambios' : 'Editar Descripción'}
                 </button>
             </div>
 
             <hr className="w-full mt-4 sm:mt-12 border-t-2 border-orange-500" />
+            <EditServices />
+            <hr className="w-full mt-4 sm:mt-2 border-t-2 border-orange-500" />
+            <div>
+                <button className="bg-orange-500 text-white rounded-lg p-2 px-6 mt-4 hover:bg-orange-600">
+                    Eliminar barberia
+                </button>
+            </div>
+            <hr className="w-full mt-4 sm:mt-4 border-t-2 border-orange-500" />
+            <NavBar />
         </div>
     );
 }
 
-export default EditBarberShop;
+export default MyBarber;
