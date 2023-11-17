@@ -1,4 +1,5 @@
 import CreAppointment from "@/components/appointments/creAppointment";
+import withAuth from "@/hocs/withAuth";
 
 function scheduleAppointment (){
     return(
@@ -6,4 +7,4 @@ function scheduleAppointment (){
     )
 }
 
-export default scheduleAppointment;
+export default withAuth(scheduleAppointment);

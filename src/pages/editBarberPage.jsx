@@ -1,4 +1,5 @@
 import EditBarberShop from "@/components/profileBarber/editBarberShop";
+import withAuth from "@/hocs/withAuth";
 
 function editBarberPage() {
   return (
@@ -8,4 +9,4 @@ function editBarberPage() {
   );
 }
 
-export default editBarberPage;
+export default withAuth(editBarberPage);

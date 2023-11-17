@@ -1,4 +1,5 @@
 import EditProf from "@/components/profileUser/editProf";
+import withAuth from "@/hocs/withAuth";
 
 function editProfilePage() {
   return (
@@ -8,4 +9,4 @@ function editProfilePage() {
   );
 }
 
-export default editProfilePage;
+export default withAuth(editProfilePage);

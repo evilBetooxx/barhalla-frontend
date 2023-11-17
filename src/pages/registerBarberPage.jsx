@@ -1,4 +1,5 @@
 import AddBarber from "@/components/barberShops/addBarber";
+import withAuth from "@/hocs/withAuth";
 
 function registerBarberPage() {
   return (
@@ -8,4 +9,4 @@ function registerBarberPage() {
   );
 }
 
-export default registerBarberPage;
+export default withAuth(registerBarberPage);

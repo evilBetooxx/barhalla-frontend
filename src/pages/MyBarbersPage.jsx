@@ -1,4 +1,5 @@
 import MyBarberShops from '@/components/profileBarber/myBarberShops';
+import withAuth from "@/hocs/withAuth";
 
 function myBarberShopsPage (){
     return(
@@ -8,4 +9,4 @@ function myBarberShopsPage (){
     )
 }
 
-export default myBarberShopsPage;
+export default withAuth(myBarberShopsPage);

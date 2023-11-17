@@ -1,4 +1,5 @@
 import ErrorBarber from'@/components/profileBarber/errorBarber';
+import withAuth from "@/hocs/withAuth";
 
 function errorBarberPage (){
     return(
@@ -8,4 +9,4 @@ function errorBarberPage (){
     )
 }
 
-export default errorBarberPage;
+export default withAuth(errorBarberPage);

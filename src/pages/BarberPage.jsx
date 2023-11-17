@@ -1,4 +1,5 @@
 import MyBarber from "@/components/barberShops/myBarber"
+import withAuth from "@/hocs/withAuth";
 
 function barberPage (){
     return(
@@ -6,4 +7,4 @@ function barberPage (){
     )
 }
 
-export default barberPage;
+export default withAuth(barberPage);

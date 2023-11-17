@@ -1,4 +1,5 @@
 import AppointmentHistory from "@/components/appointments/appointmentHistory";
+import withAuth from "@/hocs/withAuth";
 
 function appointmentPage() {
   return (
@@ -8,4 +9,4 @@ function appointmentPage() {
   );
 }
 
-export default appointmentPage;
+export default withAuth(appointmentPage);
